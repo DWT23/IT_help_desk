@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+th:first-of-type,
+td:first-of-type {
+    border: none;
+}
+
+th {
+    border-left: 1px solid rgb(51 65 85);
+}
+td {
+    border-left: 1px solid rgb(226 232 240);
+}
+tr:last-of-type {
+    border-bottom: 1px solid rgb(226 232 240);
+}
+
+/* .focusLabel label {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    transition: all 0.5s;
+} */
+
+.focusLabel {
+    transform: translateX(-10px) translateY(-30px);
+    font-size: 12px;
+}
