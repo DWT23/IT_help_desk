@@ -5,6 +5,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="<?= base_url('../css/styles.css'); ?>" />
@@ -50,7 +51,7 @@
                             </div>
                         </a>
                     </li>
-                    <li class="relative w-full pb-4 transition-all duration-500 hover:text-[#9CA777]">
+                    <!-- <li class="relative w-full pb-4 transition-all duration-500 hover:text-[#9CA777]">
                         <a href="#" class="relative flex content-center justify-between">
                             <i class="fa-sharp fa-solid fa-clipboard-list relative top-1"></i>
                             <div class="w-9/12 justify-between">
@@ -75,7 +76,7 @@
                                 <h3>Exports</h3>
                             </div>
                         </a>
-                    </li>
+                    </li> -->
 
                     <span class="rounded-sm border-b-2 border-slate-500 block"></span>
                     <li class="relative w-full py-4 transition-all duration-500 hover:text-[#9CA777]">
@@ -97,8 +98,8 @@
                     </li>
 
                     <span class="rounded-sm border-b-2 border-slate-500 block"></span>
-                    <li class="relative w-full py-4 transition-all duration-500 hover:text-[#9CA777]">
-                        <a href="/nilai" onclick="toggleSubnav(4)" class="relative flex w-full content-center justify-between">
+                    <!-- <li class="relative w-full py-4 transition-all duration-500 hover:text-[#9CA777]">
+                        <a href="#" onclick="toggleSubnav(4)" class="relative flex w-full content-center justify-between">
                             <i class="fa-sharp fa-solid fa-gears relative top-1"></i>
 
                             <div class="relative flex w-9/12 justify-between">
@@ -117,13 +118,13 @@
                         </button>
                         <ul id="subnav5" class="ml-[25%] mt-5 hidden">
                             <li class="subnav-item transition-all duration-500 hover:text-[#9CA777]">
-                                <a href="/register">
+                                <a href="#">
                                     <i class="fa-sharp fa-solid fa-sign"></i>
                                     Register
                                 </a>
                             </li>
                         </ul>
-                    </li>
+                    </li> -->
 
                 </ul>
             </nav>

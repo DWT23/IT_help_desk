@@ -24,6 +24,12 @@ class EmployeeModel extends Model
     protected $useTimestamps = true;
     protected $dateFormat = 'datetime';
 
+    public function countAll()
+    {
+        $builder = $this->db->table('employees');
+        return $builder->countAll();
+    }
+
     protected function beforeInsert(array $data)
     {
         $data = $this->passwordHash($data);

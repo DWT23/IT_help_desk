@@ -26,6 +26,12 @@ class TicketModel extends Model
 
     protected $useTimestamps = true;
 
+    public function countAll()
+    {
+        $builder = $this->db->table('tickets');
+        return $builder->countAll();
+    }
+
     public function getEmployee()
     {
         $builder = $this->db->table('tickets');

@@ -114,8 +114,11 @@ class EmployeeController extends BaseController
 
     public function delete($id)
     {
+        $csrfToken = $this->request->getHeaderLine('X-CSRF-Token');
+        // if (!csrf_verify($csrfToken)) {
+        //     return $this->response->setStatusCode(403)->setJSON(['message' => 'Invalid CSRF token']);
+        // }
         $this->employeeModel->delete($id);
-        return redirect()->to('users');
     }
 
     private function getValidationRules()

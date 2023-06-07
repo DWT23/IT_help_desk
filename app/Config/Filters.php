@@ -24,7 +24,8 @@ class Filters extends BaseConfig
         'invalidchars'  => InvalidChars::class,
         'secureheaders' => SecureHeaders::class,
         'AuthCheck' => ValidationFilter::class,
-        'AlreadyLoggedIn' => AlreadyLoggedIn::class
+        'AlreadyLoggedIn' => AlreadyLoggedIn::class,
+        'ajax' => \CodeIgniter\Filters\CSRF::class,
     ];
 
     /**
@@ -39,6 +40,7 @@ class Filters extends BaseConfig
         ],
         'after' => [
             'toolbar',
+            'ajax' => ['except' => ['/chat']],
             // 'honeypot',
             // 'secureheaders',
         ],
@@ -55,7 +57,9 @@ class Filters extends BaseConfig
      * permits any HTTP method to access a controller. Accessing the controller
      * with a method you don’t expect could bypass the filter.
      */
-    public array $methods = [];
+    public $methods = [
+        'post' => ['csrf'],
+    ];
 
     /**
      * List of filter aliases that should run on any

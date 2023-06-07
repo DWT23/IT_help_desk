@@ -45,24 +45,24 @@ function thumb() {
 // });
 
 // CHat
-$(function () {
-    scrollMsgBottom();
-});
+// $(function () {
+//     scrollMsgBottom();
+// });
 
-function scrollMsgBottom() {
-    var d = $(".message-holder");
-    d.scrollTop(d.prop("scrollHeight"));
-}
+// function scrollMsgBottom() {
+//     var d = $(".message-holder");
+//     d.scrollTop(d.prop("scrollHeight"));
+// }
 
-function getImages() {
-    const imgs = {
-        Mary: "mary.jpg",
-        Jon: "jon.jpg",
-        Alex: "alex.jpg",
-    };
+// function getImages() {
+//     const imgs = {
+//         Mary: "mary.jpg",
+//         Jon: "jon.jpg",
+//         Alex: "alex.jpg",
+//     };
 
-    return imgs;
-}
+//     return imgs;
+// }
 
 // $(function () {
 //     var conn = new WebSocket(`ws://localhost:8080?access_token=<?= session()->get('id') ?>`);

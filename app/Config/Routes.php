@@ -42,7 +42,7 @@ $routes->get('/users/create', 'Admin\EmployeeController::create', ['filter' => '
 $routes->post('/users/create', 'Admin\EmployeeController::create');
 $routes->get('/users/edit/(:num)', 'Admin\EmployeeController::edit/$1', ['filter' => 'AuthCheck']);
 $routes->post('/users/edit/(:num)', 'Admin\EmployeeController::edit/$1');
-$routes->get('/users/delete/(:num)', 'Admin\EmployeeController::delete/$1', ['filter' => 'AuthCheck']);
+$routes->post('/users/delete/(:num)', 'Admin\EmployeeController::delete/$1', ['filter' => 'AuthCheck']);
 
 
 
@@ -60,9 +60,10 @@ $routes->post('/ticket/create', 'TicketsController::create');
 $routes->get('/fetch/(:any)', 'FetchController::index/$1', ['filter' => 'AuthCheck']);
 $routes->get('/ticket/(:num)', 'FetchController::getTicket/$1', ['filter' => 'AuthCheck']);
 
-$routes->get('/ticketChat/(:num)', 'FetchController::getTicket/$1', ['filter' => 'AuthCheck']);
-// $routes->get('/server', 'Server::index');
-
+$routes->group('api', ['filter' => 'csrf'], function ($routes) {
+    $routes->get('chat/(:num)', 'TicketChatsController::index/$1', ['filter' => 'AuthCheck']);
+    $routes->post('chat', 'TicketChatsController::create', ['filter' => 'AuthCheck']);
+});
 /*
  * --------------------------------------------------------------------
  * Additional Routing

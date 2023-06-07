@@ -10,20 +10,25 @@ function deleteButton(id) {
         cancelButtonText: "Cancel",
     }).then(result => {
         if (result.isConfirmed) {
-            // Mengarahkan pengguna ke rute delete setelah mengkonfirmasi
-            window.location.href = `/organization/delete/${id}`;
-            Swal.fire({
-                icon: "success",
-                title: "Data has been deleted!",
-                showConfirmButton: false,
-                timer: 1500,
+            $.ajax({
+                method: "post",
+                data: { id: id },
+                url: `/users/delete/${id}`,
+                beforeSend: function (xhr) {
+                    let csrfToken = $('meta[name="csrf-token"]').attr("content");
+                    xhr.setRequestHeader("X-CSRF-Token", csrfToken);
+                },
+            }).then(function () {
+                window.location.href = `/users`;
+                Swal.fire({
+                    icon: "success",
+                    title: "Data has been deleted!",
+                    showConfirmButton: false,
+                    timer: 1500,
+                });
             });
         } else {
-            // Pengguna membatalkan penghapusan
-            Swal.fire("Cancel", "Data not deleted.", "info").then(() => {
-                // Mengarahkan pengguna kembali ke halaman sebelumnya
-                window.history.back();
-            });
+            Swal.fire("Cancel", "Data not deleted.", "info");
         }
     });
 }

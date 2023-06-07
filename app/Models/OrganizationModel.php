@@ -38,4 +38,10 @@ class OrganizationModel extends Model
     protected $afterFind      = [];
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
+
+    public function countAll()
+    {
+        $builder = $this->db->table('organizations');
+        return $builder->countAll();
+    }
 }

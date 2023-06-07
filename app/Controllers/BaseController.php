@@ -2,7 +2,6 @@
 
 namespace App\Controllers;
 
-use App\Controllers\Admin\Organization;
 use CodeIgniter\Controller;
 use CodeIgniter\HTTP\CLIRequest;
 use CodeIgniter\HTTP\IncomingRequest;
@@ -12,6 +11,7 @@ use Psr\Log\LoggerInterface;
 
 
 use App\Models\TicketModel;
+use App\Models\TicketChatModel;
 use App\Models\EmployeeModel;
 use App\Models\OrganizationModel;
 
@@ -55,6 +55,7 @@ abstract class BaseController extends Controller
      * Constructor.
      */
     public $ticketModel;
+    public $ticketChatModel;
     public $employeeModel;
     public $organizationModel;
     public function initController(RequestInterface $request, ResponseInterface $response, LoggerInterface $logger)
@@ -67,6 +68,7 @@ abstract class BaseController extends Controller
         // E.g.: $this->session = \Config\Services::session();
 
         $this->ticketModel = new TicketModel();
+        $this->ticketChatModel = new TicketChatModel();
         $this->employeeModel = new EmployeeModel();
         $this->organizationModel = new OrganizationModel();
         session();

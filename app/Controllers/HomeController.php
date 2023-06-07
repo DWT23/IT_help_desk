@@ -7,6 +7,9 @@ class HomeController extends BaseController
 
     public function index()
     {
-        return view('pages/home');
+        $data['totalTicket'] = $this->ticketModel->countAll();
+        $data['totalUser'] = $this->employeeModel->countAll();
+        $data['totalOrganization'] = $this->organizationModel->countAll();
+        return view('pages/home', $data);
     }
 }

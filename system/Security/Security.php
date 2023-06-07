@@ -52,7 +52,7 @@ class Security implements SecurityInterface
      *
      * @var bool
      */
-    protected $tokenRandomize = false;
+    protected $tokenRandomize = true;
 
     /**
      * CSRF Hash (without randomization)
@@ -288,7 +288,7 @@ class Security implements SecurityInterface
         // Protects POST, PUT, DELETE, PATCH
         $method           = strtoupper($request->getMethod());
         $methodsToProtect = ['POST', 'PUT', 'DELETE', 'PATCH'];
-        if (! in_array($method, $methodsToProtect, true)) {
+        if (!in_array($method, $methodsToProtect, true)) {
             return $this;
         }
 
@@ -302,7 +302,7 @@ class Security implements SecurityInterface
         }
 
         // Do the tokens match?
-        if (! isset($token, $this->hash) || ! hash_equals($this->hash, $token)) {
+        if (!isset($token, $this->hash) || !hash_equals($this->hash, $token)) {
             throw SecurityException::forDisallowedAction();
         }
 
@@ -347,14 +347,14 @@ class Security implements SecurityInterface
             return $tokenValue;
         }
 
-        if ($request->hasHeader($this->headerName) && ! empty($request->header($this->headerName)->getValue())) {
+        if ($request->hasHeader($this->headerName) && !empty($request->header($this->headerName)->getValue())) {
             return $request->header($this->headerName)->getValue();
         }
 
         $body = (string) $request->getBody();
         $json = json_decode($body);
 
-        if ($body !== '' && ! empty($json) && json_last_error() === JSON_ERROR_NONE) {
+        if ($body !== '' && !empty($json) && json_last_error() === JSON_ERROR_NONE) {
             return $json->{$this->tokenName} ?? null;
         }
 
@@ -505,7 +505,7 @@ class Security implements SecurityInterface
             '%3d',
         ];
 
-        if (! $relativePath) {
+        if (!$relativePath) {
             $bad[] = './';
             $bad[] = '/';
         }
@@ -589,7 +589,7 @@ class Security implements SecurityInterface
     {
         assert($request instanceof IncomingRequest);
 
-        if ($this->cookie->isSecure() && ! $request->isSecure()) {
+        if ($this->cookie->isSecure() && !$request->isSecure()) {
             return false;
         }
 

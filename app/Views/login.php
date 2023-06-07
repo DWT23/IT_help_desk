@@ -17,6 +17,7 @@
     <div class="login-box">
         <h2 class="login-title">Login</h2>
         <form class="login-form" action="/auth" method="post">
+            <?= csrf_field(); ?>
             <div class="login-control">
                 <label class="login-label" for="username">Username:</label>
                 <i class="fa-sharp fa-solid fa-user login-icon"></i>

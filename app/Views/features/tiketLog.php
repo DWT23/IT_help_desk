@@ -56,6 +56,7 @@
                             <img src="" class="object-cover h-8 w-8 rounded-full ticketCreatorImg" />
                             <div class="ml-2">
                                 <span class="ticketCreatorName font-semibold"></span>
+                                <input type="hidden" id="ticketCreatorNip">
                                 <div class="text-slate-700 mt-2" id="ticketDescription"></div>
                             </div>
                         </div>
@@ -68,15 +69,18 @@
                             <img src="" class="object-cover h-8 w-8 rounded-full ticketCreatorImg" />
                             <div class="ml-2 flex flex-col">
                                 <span class="ticketCreatorName font-semibold"></span>
-                                <Sp>Created the ticket</Sp>
+                                <p>Created the ticket</p>
                             </div>
                         </div>
                     </div>
+                    <div id="message"></div>
 
                 </div>
             </div>
-            <form action="" class="p-4">
-                <input class="w-full py-2 px-3 focus:outline-none" type="text" placeholder="Type a public response" />
+            <form class="p-4" id="formChat" method="post">
+                <?= csrf_field() ?>
+                <input type="hidden" id="csrf" value="<?= csrf_hash(); ?>">
+                <input class="w-full py-2 px-3 focus:outline-none" type="text" placeholder="Type a public response" id="chat" />
                 <div class="flex justify-between mt-2">
                     <select id="filterChat" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-1/2 p-2.5" name="filterChat" required>
                         <option selected>Public Response</option>
@@ -85,7 +89,7 @@
                     <!-- <input type="file" name="" id="" class="content-none"> -->
                     <!-- <i class="fa-sharp fa-solid fa-paperclip"></i> -->
                     <div class="flex">
-                        <button type="button" class="py-2.5 px-4 text-sm font-medium text-gray-900 focus:outline-none bg-white border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200">Send</button>
+                        <button type="submit" class="py-2.5 px-4 text-sm font-medium text-gray-900 focus:outline-none bg-white border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200" id="chatSend">Send</button>
                         <div class="relative">
                             <button id="dropdownDefaultButton" data-dropdown-toggle="dropdown" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium text-sm px-4 py-2.5 text-center inline-flex items-center" type="button">
                                 <svg class="w-5 h-6" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
