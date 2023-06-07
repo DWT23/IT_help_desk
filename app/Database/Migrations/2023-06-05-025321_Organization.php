@@ -8,6 +8,7 @@ class Organization extends Migration
 {
     public function up()
     {
+        $this->db->disableForeignKeyChecks();
         $this->forge->addField([
             'id' => [
                 'type' => 'INT',
@@ -31,6 +32,7 @@ class Organization extends Migration
 
         $this->forge->addPrimaryKey('id');
         $this->forge->createTable('organizations');
+        $this->db->enableForeignKeyChecks();
     }
 
     public function down()

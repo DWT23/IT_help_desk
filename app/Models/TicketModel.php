@@ -12,7 +12,7 @@ class TicketModel extends Model
         'summary',
         'assignee',
         'creator',
-        'organization',
+        'organization_id',
         'description',
         'priority',
         'category',
@@ -32,6 +32,17 @@ class TicketModel extends Model
         return $builder->countAll();
     }
 
+    public function getAllReference()
+    {
+        $builder = $this->db->table('tickets');
+        $builder->join('employees', 'employees.nip = tickets.creator', 'left');
+        $builder->join('organizations', 'organizations.id = tickets.organization_id', 'left');
+        // $builder->where('ticket_chats.ticket_id', $id);
+        // $query = $builder->getWhere(['ticket_chats.ticket_id' => $id]);
+        $query = $builder->get();
+        return $query->getResult();
+    }
+
     public function getEmployee()
     {
         $builder = $this->db->table('tickets');
@@ -42,9 +53,11 @@ class TicketModel extends Model
 
     public function getTicketBy($id)
     {
-        $builder = $this->db->table('tickets');
-        $builder->join('employees', 'employees.nip = tickets.creator');
-        $query = $builder->getWhere(['id' => $id]);
+        $query = $this->db->table('tickets')
+            ->join('employees', 'employees.nip = tickets.creator')
+            ->join('organizations', 'organizations.id = tickets.organization_id')
+            ->where('tickets.ticket_id', $id)
+            ->get();
         return $query->getRow();
     }
 }

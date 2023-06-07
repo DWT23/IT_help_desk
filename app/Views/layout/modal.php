@@ -19,7 +19,7 @@
                 <form class="space-y-6" action="/ticket/create" method="post" enctype="multipart/form-data">
                     <?= csrf_field(); ?>
                     <div>
-                        <select id="organizations" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" name="organization" autofocus required>
+                        <select id="organizations" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" name="organization_id" autofocus required>
                             <option selected disable>Select Organizations</option>
                         </select>
                     </div>

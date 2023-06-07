@@ -152,14 +152,14 @@
                                 </li>
                                 <li class="relative">
                                     <div class="mt-5">
-                                        <label for="attrPriority" class="absolute text-xs bg-white px-1 left-2 -top-2 text-slate-500">Due Dates</label>
-                                        <input type="text" id="attrPriority" class="border border-gray-300 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" name="due_dates">
+                                        <label for="attrDueDate" class="absolute text-xs bg-white px-1 left-2 -top-2 text-slate-500">Due Dates</label>
+                                        <input type="text" id="attrDueDate" class="border border-gray-300 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" name="due_dates">
                                     </div>
                                 </li>
                                 <li class="relative">
                                     <div class="mt-5">
-                                        <label for="attrHardware" class="absolute text-xs bg-white px-1 left-2 -top-2 text-slate-500">Hardware</label>
-                                        <input type="text" id="attrHardware" class="border border-gray-300 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" name="hardware">
+                                        <label for="attrCategory" class="absolute text-xs bg-white px-1 left-2 -top-2 text-slate-500">Category</label>
+                                        <input type="text" id="attrCategory" class="border border-gray-300 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" name="hardware">
                                     </div>
                                 </li>
                             </ul>

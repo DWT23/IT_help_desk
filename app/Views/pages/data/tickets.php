@@ -49,25 +49,25 @@
                     if ($tickets) :
                     ?>
                         <?php foreach ($tickets as $row) : ?>
-                            <tr id="rowTicket" onclick="showTicket(<?= $row['id']; ?>)" data-ticket="<?= $row['id']; ?>" class="hover:bg-[#fcf5d9] cursor-pointer">
-                                <td class="px-4 py-2"><?= $row['id'] ?></td>
-                                <td class="px-4 py-2"><?= $row['summary'] ?></td>
-                                <td class="px-4 py-2"><?= $row['assignee'] ?></td>
-                                <td class="px-4 py-2"><?= $row['creator'] ?></td>
-                                <td class="px-4 py-2"><?= $row['organization'] ?></td>
-                                <td class="px-4 py-2"><?= $row['priority'] ?></td>
-                                <td class="px-4 py-2"><?= $row['category'] ?></td>
-                                <td class="px-4 py-2"><?= $row['created_at'] ?></td>
-                                <td class="px-4 py-2"><?= $row['updated_at'] ?></td>
-                                <td class="px-4 py-2"><?= $row['due_date'] ?></td>
-                                <td class="px-4 py-2"><?= $row['response_time'] ?></td>
-                                <td class="px-4 py-2"><?= $row['close_time'] ?></td>
+                            <tr id="rowTicket" onclick="showTicket(<?= $row->ticket_id; ?>)" data-ticket="<?= $row->ticket_id; ?>" class="hover:bg-[#fcf5d9] cursor-pointer">
+                                <td class="px-4 py-2"><?= $row->ticket_id ?></td>
+                                <td class="px-4 py-2"><?= $row->summary ?></td>
+                                <td class="px-4 py-2"><?= $row->assignee ?></td>
+                                <td class="px-4 py-2"><?= $row->creator ?></td>
+                                <td class="px-4 py-2"><?= $row->name ?></td>
+                                <td class="px-4 py-2"><?= $row->priority ?></td>
+                                <td class="px-4 py-2"><?= $row->category ?></td>
+                                <td class="px-4 py-2"><?= $row->created_at ?></td>
+                                <td class="px-4 py-2"><?= $row->updated_at ?></td>
+                                <td class="px-4 py-2"><?= $row->due_date ?></td>
+                                <td class="px-4 py-2"><?= $row->response_time ?></td>
+                                <td class="px-4 py-2"><?= $row->close_time ?></td>
                                 <td width="125" class="flex flex-col content-center justify-center px-4 py-2">
-                                    <a href="/organization/edit/<?= $row['id'] ?>" class="bg-yellow-500 px-3 py-1 transition-[background-color] hover:bg-yellow-400">
+                                    <a href="/ticket/edit/<?= $row->ticket_id ?>" class="bg-yellow-500 px-3 py-1 transition-[background-color] hover:bg-yellow-400">
                                         <i class="fa-sharp fa-solid fa-pen-to-square"></i>
                                         Edit
                                     </a>
-                                    <button class="mt-2 bg-red-500 px-3 py-1 transition-[background-color] hover:bg-red-400" onclick="deleteButton(<?= $row['id'] ?>)">
+                                    <button class="mt-2 bg-red-500 px-3 py-1 transition-[background-color] hover:bg-red-400" onclick="deleteButton(<?= $row->ticket_id ?>)">
                                         <i class="fa-sharp fa-solid fa-trash"></i>
                                         Delete
                                     </button>

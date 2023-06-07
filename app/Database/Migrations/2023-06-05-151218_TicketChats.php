@@ -10,7 +10,7 @@ class TicketChats extends Migration
     {
         $this->db->disableForeignKeyChecks();
         $this->forge->addField([
-            'id' => [
+            'chat_id' => [
                 'type' => 'INT',
                 'constraint' => 11,
                 'unsigned' => true,
@@ -38,8 +38,8 @@ class TicketChats extends Migration
             ],
         ]);
 
-        $this->forge->addPrimaryKey('id');
-        $this->forge->addForeignKey('ticket_id', 'tickets', 'id', 'CASCADE', 'CASCADE');
+        $this->forge->addPrimaryKey('chat_id');
+        $this->forge->addForeignKey('ticket_id', 'tickets', 'ticket_id', 'CASCADE', 'CASCADE');
         $this->forge->addForeignKey('sender_id', 'employees', 'nip', 'CASCADE', 'CASCADE');
         $this->forge->createTable('ticket_chats');
         $this->db->enableForeignKeyChecks();

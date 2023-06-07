@@ -21,7 +21,7 @@ class TicketChatModel extends Model
     public function ticket($id)
     {
         $builder = $this->db->table('ticket_chats');
-        $builder->join('tickets', 'ticket_chats.ticket_id = tickets.id', 'left');
+        $builder->join('tickets', 'ticket_chats.ticket_id = tickets.ticket_id', 'left');
         $builder->join('employees', 'ticket_chats.sender_id = employees.nip', 'left');
         $builder->where('ticket_chats.ticket_id', $id);
         // $query = $builder->getWhere(['ticket_chats.ticket_id' => $id]);

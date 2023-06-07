@@ -8,7 +8,7 @@ class TicketsController extends BaseController
 {
     public function index()
     {
-        $data['tickets'] = $this->ticketModel->findAll();
+        $data['tickets'] = $this->ticketModel->getAllReference();
         return view('pages/data/tickets', $data);
     }
 
@@ -35,8 +35,8 @@ class TicketsController extends BaseController
                 'label'  => 'summary',
                 'rules'  => 'required',
             ],
-            'organization' => [
-                'label'  => 'organization',
+            'organization_id' => [
+                'label'  => 'organization_id',
                 'rules'  => 'required',
             ],
             'creator' => [

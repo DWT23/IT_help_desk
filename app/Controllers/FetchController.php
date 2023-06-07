@@ -23,7 +23,6 @@ class FetchController extends BaseController
     public function getTicket($id)
     {
         $tickets = $this->ticketModel->getTicketBy($id);
-
         return $this->response->setJSON($tickets);
     }
 }

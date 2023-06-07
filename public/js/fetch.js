@@ -59,6 +59,7 @@ function showTicket(id) {
         },
         dataType: "json",
         success: function (data) {
+            console.log(data);
             let ticketId = document.getElementById("ticketId");
             let ticketName = document.getElementById("ticketName");
             let ticketCreatorImg = document.querySelectorAll(".ticketCreatorImg");
@@ -77,6 +78,7 @@ function showTicket(id) {
             ticketDescription.innerHTML = data.description;
 
             getChatTemplate(ticketId.innerHTML);
+            sideChat(data);
         },
         error: function (xhr, status, error) {
             console.error(error);
@@ -112,6 +114,24 @@ function getChatTemplate(id) {
             console.error(error);
         },
     });
+}
+
+function sideChat(data) {
+    let organization = $("#attrOrganizations");
+    let contact = $("#attrContact");
+    let assigne = $("#attrAssignee");
+    let status = $("#attrStatus");
+    let priorty = $("#attrPriority");
+    let dueDate = $("#attrDueDate");
+    let category = $("#attrCategory");
+
+    organization.val(data.name);
+    contact.val(data.fullname);
+    assigne.val(data.fullname);
+    status.val(data.status);
+    priorty.val(data.priority);
+    dueDate.val(data.due_date);
+    category.val(data.category);
 }
 
 (function () {
